@@ -14,7 +14,7 @@ class Random {
 public:
     explicit Random(int seed_ = time(nullptr)):engine(seed_) {}
     size_t operator() (int maxn = -1) {
-        return maxn == -1 ? distribution(engine) :  distribution(engine, decltype(distribution)::param_type(0, maxn));
+        return maxn == -1 ? distribution(engine) :  distribution(engine, decltype(distribution)::param_type(0, maxn - 1));
     }
     void setSeed(int seed_) {
         engine.seed(seed_);

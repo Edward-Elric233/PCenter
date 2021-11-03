@@ -122,11 +122,13 @@ pair<int, int> tabu_search(vector<Node> &nodes, const Solution& X, pair<int, int
     int obj = INT_MAX;
     int t = global_data::getRandom(X.U.count());
     size_t v;
+//    std::cout << __FILE__ << ":" << __LINE__ << "\t\t" << X.U << std::endl;
+//    std::cout << __FILE__ << ":" << __LINE__ << "\t\t" << X.U.count() << std::endl;
     for (v = X.U.find_first(); v != dynamic_bitset::npos && t--; v = X.U.find_next(v));
     for (int i = 0; i < global_data::n; ++i) global_data::delta[i] = nodes[i].delta;
 
     auto &node = nodes[v];
-    cout << "nodes[v].C:" << node.C << endl;
+//    cout << "nodes[v].C:" << node.C << endl;
     for (size_t i = node.C.find_first(); i != dynamic_bitset::npos; i = node.C.find_next(i)) {
         if (i == tabuList.first || i == tabuList.second) continue;      //禁忌动作
         try_to_open_center(nodes, X, i);

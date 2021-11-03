@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     global_data::timeChecker.setTimeLimit(atoi(argv[1]));
     global_data::getRandom.setSeed(atoi(argv[2]));
 
-    ifstream is("../data/data1.in");
+    ifstream is("../Instance/pmed01.n100p005.txt");
     work::read(is);
 //    test::test_read();
     auto X = work::algorithm();
