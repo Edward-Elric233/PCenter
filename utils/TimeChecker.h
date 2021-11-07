@@ -11,14 +11,14 @@
 class TimeChecker {
     using system_clock = std::chrono::system_clock;
     system_clock::time_point start, end;
-    using seconds = std::chrono::seconds;
-    static constexpr int RESERVE = 1;   //预留1秒的时间用于程序退出
+    using milliseconds = std::chrono::milliseconds;
+    static constexpr int RESERVE = 1;   //预留1毫秒的时间用于程序退出
 public:
     TimeChecker(int sec_ = 10):start(system_clock::now()) {
-        end = start + seconds(sec_ - RESERVE);
+        end = start + milliseconds(sec_ * 1000 - RESERVE);
     }
     void setTimeLimit(int sec_) {
-        end = start + seconds(sec_ - RESERVE);
+        end = start + milliseconds(sec_ * 1000 - RESERVE);
     }
     bool operator() () const {
         return system_clock::now() < end;

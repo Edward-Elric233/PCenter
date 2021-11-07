@@ -3,7 +3,10 @@ project(PCenter)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(/home/edward/C++/Boost/boost_1_77_0/boost)
+set(CMAKE_CXX_FLAGS "-static-libgcc -static-libstdc++ ${CMAKE_CXX_FLAGS}")
+
+#include_directories(/home/edward/C++/Boost/boost_1_77_0/boost)
+include_directories(D:/Boost/boost_1_77_0/)
 include_directories(class)
 include_directories(utils)
 include_directories(src)
